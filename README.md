@@ -1,6 +1,67 @@
 <div align="center">
-<h1>Fish Speech</h1>
+<h1>Fish Speech for AMD GPU's Using ZLUDA (Only for WINDOWS)</h1>
 
+## Dependencies
+1. **Git**: Download from https://git-scm.com/download/win.
+2. **Python** ([3.10.11](https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe) 3.11 also works.**Don't Use Windows Store Version**. If you have that installed, uninstall and please install from python.org. During
+   installation remember to check the box for "Add Python to PATH when you are at the "Customize Python" screen.
+3. **Visual C++ Runtime**: Download [vc_redist.x64.exe](https://aka.ms/vs/17/release/vc_redist.x64.exe) and install it.
+4. Install **HIP SDK 5.7.1** from [HERE](https://www.amd.com/en/developer/resources/rocm-hub/hip-sdk.html) the correct version, "Windows 10 & 11 5.7.1 HIP SDK"
+5. To see system variables : Right click My Computer - Properties - Advanced System Settings (on the menu right side) - Environment Variable.
+   Add the system variable HIP_PATH, value: `C:\\Program Files\\AMD\\ROCm\\5.7\\` (This is the default folder, if you
+   have installed it on another drive, change if necessary)
+    1. Check the variables on the lower part (System Variables), there should be a variable called: HIP_PATH.
+    2. Also check the variables on the lower part (System Variables), there should be a variable called: "Path".
+       Double-click it and click "New" add this: `C:\Program Files\AMD\ROCm\5.7\bin`
+6. If you have an AMD GPU below 6800 (6700,6600 etc.), download the recommended library files for your gpu
+   from [Brknsoul Repository](https://github.com/brknsoul/ROCmLibs)
+    1. Go to folder "C:\Program Files\AMD\ROCm\5.7\bin\rocblas", there would be a "library" folder, backup the files
+       inside to somewhere else.
+    2. Open your downloaded optimized library archive and put them inside the library folder (overwriting if
+       necessary): "C:\\Program Files\\AMD\\ROCm\\5.7\\bin\\rocblas\\library"
+7. Reboot your system.
+
+## Setup (Windows-Only)
+
+Open a cmd prompt. (Powershell doesn't work, you have to use command prompt.)
+
+[ You open command prompt via typing "cmd" in start / run OR the easier way going into the drive or directory you want to install nunif/iw3 to on explorer, click on the address bar and type "cmd" press enter, this would open a commandline window on the directory you are in on explorer at the moment. ]
+
+```bash
+git clone https://github.com/fish-speech-zluda
+```
+
+```bash
+cd fish-speech-zluda
+```
+
+```bash
+install-amd.bat
+```
+
+to start for later use (or create a shortcut to) :
+
+```bash
+fsz.bat
+```
+
+******** The first time you run the webui and generate,  it would seem like your computer is doing nothing, there would a message saying. "Compiling in progress.." 
+******** that's normal , zluda is creating a database for future use. That only happens once (or at least goes very fast for next sessions.)
+
+##  Troubleshooting
+
+- DO NOT use non-english characters as folder names to put fish-speech-zluda under.
+- Wipe your pip cache "C:\Users\USERNAME\AppData\Local\pip\cache" You can also do this when venv is active with : pip cache purge (if needed)
+- Have the latest drivers installed for your amd gpu. Also, Remove Any Nvidia Drivers you might have from previous nvidia gpu's.
+- If you see zluda errors make sure these three files are inside "fish-speech-zluda\venv\Lib\site-packages\torch\lib" cublas64_11.dll (231kb) cusparse64_11.dll (199kb) nvrtc64_112_0.dll (129kb) If they are there but much bigger in size please run : patchzluda.bat
+- If for some reason you can't solve with these and want to start from zero, delete "venv" folder and re-run install-amd.bat
+- If you can't git pull to the latest version, run these commands, git fetch --all and then git reset --hard origin/master now you can git pull
+- Problems with caffe2_nvrtc.dll: if you are sure you properly installed hip and can see it on path, please DON'T use python from windows store, use the link provided or 3.11 from the official website. After uninstalling python from windows store and installing the one from the website, be sure the delete venv folder, and run install-amd.bat once again.
+- rocBLAS-error: If you have an integrated GPU by AMD (e.g. AMD Radeon(TM) Graphics) you need to add HIP_VISIBLE_DEVICES=1 to your environment variables. Otherwise it will default to using your iGPU. 
+
+---------------------------
+-The original readme below-
+---------------------------
 **English** | [简体中文](docs/README.zh.md) | [Portuguese](docs/README.pt-BR.md) | [日本語](docs/README.ja.md) | [한국어](docs/README.ko.md) <br>
 
 <a href="https://www.producthunt.com/posts/fish-speech-1-4?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-fish&#0045;speech&#0045;1&#0045;4" target="_blank">
