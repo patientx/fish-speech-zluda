@@ -7,7 +7,7 @@ set GIT=
 set VENV_DIR=./venv
 set ZLUDA_COMGR_LOG_LEVEL=1
 echo *** Checking and updating to new version if possible 
-:: git pull
+git pull
 echo.
 .\zluda\zluda.exe -- %PYTHON% tools\run_webui.py --half
 pause
