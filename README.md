@@ -1,4 +1,3 @@
-<div align="center">
 <h1>Fish Speech for AMD GPU's Using ZLUDA (Only for WINDOWS)</h1>
 
 ## Dependencies
