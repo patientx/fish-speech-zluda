@@ -10,6 +10,7 @@ from typing import Literal, Optional, Tuple, Union
 import click
 import numpy as np
 import torch
+import zluda
 import torch._dynamo.config
 import torch._inductor.config
 from loguru import logger
