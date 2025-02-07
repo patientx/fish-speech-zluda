@@ -39,7 +39,7 @@ class LinearSpectrogram(nn.Module):
 
         spec = torch.stft(
             y,
-            self.n_fft,
+            n_fft=self.n_fft,
             hop_length=self.hop_length,
             win_length=self.win_length,
             window=self.window,
