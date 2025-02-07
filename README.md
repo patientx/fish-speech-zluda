@@ -56,7 +56,14 @@ fsz.bat
 - If for some reason you can't solve with these and want to start from zero, delete "venv" folder and re-run install-amd.bat
 - If you can't git pull to the latest version, run these commands, git fetch --all and then git reset --hard origin/master now you can git pull
 - Problems with caffe2_nvrtc.dll: if you are sure you properly installed hip and can see it on path, please DON'T use python from windows store, use the link provided or 3.11 from the official website. After uninstalling python from windows store and installing the one from the website, be sure the delete venv folder, and run install-amd.bat once again.
-- rocBLAS-error: If you have an integrated GPU by AMD (e.g. AMD Radeon(TM) Graphics) you need to add HIP_VISIBLE_DEVICES=1 to your environment variables. Otherwise it will default to using your iGPU. 
+- rocBLAS-error: If you have an integrated GPU by AMD (e.g. AMD Radeon(TM) Graphics) you need to add HIP_VISIBLE_DEVICES=1 to your environment variables. Otherwise it will default to using your iGPU.
+
+##  Acknowledgements
+
+- [Zluda Wiki from SdNext](https://github.com/vladmandic/automatic/wiki/ZLUDA)
+- [Brknsoul for Rocm Libraries](https://github.com/brknsoul/ROCmLibs)
+- [Lshqqytiger](https://github.com/lshqqytiger/ZLUDA)
+- [AznamirWoW](https://github.com/AznamirWoW)
 
 ---------------------------
 -The original readme below-
