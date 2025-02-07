@@ -4,6 +4,7 @@ from math import prod
 from typing import Callable
 
 import torch
+import zluda
 import torch.nn.functional as F
 from torch import nn
 from torch.nn.utils.parametrizations import weight_norm
