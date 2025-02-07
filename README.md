@@ -47,8 +47,11 @@ fsz.bat
 ******** The first time you run the webui and generate,  it would seem like your computer is doing nothing, there would a message saying. "Compiling in progress.." 
 ******** that's normal , zluda is creating a database for future use. That only happens once (or at least goes very fast for next sessions.)
 
+- We are using "--half" parameter by default , it makes the generation speed almost 3 times faster than normal on my rx 6600 , so feel free to try it if you have higher gpu's which might gain from using the standard bf16.
+
 ##  Troubleshooting
 
+- "--compile" doesn't work because it requires triton , which is hard to install correctly on windows and requires torch 2.5, which brings with it other problems.
 - DO NOT use non-english characters as folder names to put fish-speech-zluda under.
 - Wipe your pip cache "C:\Users\USERNAME\AppData\Local\pip\cache" You can also do this when venv is active with : pip cache purge (if needed)
 - Have the latest drivers installed for your amd gpu. Also, Remove Any Nvidia Drivers you might have from previous nvidia gpu's.
