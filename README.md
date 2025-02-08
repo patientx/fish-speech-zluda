@@ -27,7 +27,7 @@ Open a cmd prompt. (Powershell doesn't work, you have to use command prompt.)
 [ You open command prompt via typing "cmd" in start / run OR the easier way going into the drive or directory you want to install nunif/iw3 to on explorer, click on the address bar and type "cmd" press enter, this would open a commandline window on the directory you are in on explorer at the moment. ]
 
 ```bash
-git clone https://github.com/fish-speech-zluda
+git clone git clone https://github.com/patientx/fish-speech-zluda.git
 ```
 
 ```bash
